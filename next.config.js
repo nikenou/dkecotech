@@ -1,5 +1,6 @@
+const { PHASE_PRODUCTION_SERVER } = require('next/constants');
 const createNextIntlPlugin = require('next-intl/plugin');
- const withNextIntl = createNextIntlPlugin();
+const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 
@@ -20,4 +21,22 @@ const nextConfig = {
   },
 }
 
-module.exports = withNextIntl(nextConfig);
+const nextConfig_production = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.dkecotech.com',
+        pathname: '/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+      }
+    ]
+  },
+}
+
+module.exports = (phase) => {
+  return phase === PHASE_PRODUCTION_SERVER ? withNextIntl(nextConfig_production) : withNextIntl(nextConfig);
+}
