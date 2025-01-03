@@ -1,3 +1,5 @@
 # 将所有js文件的访问路径更改为新的路径
-[headers]
-  /.*\.js/ = { path = "/admin/:splat:ext" }
+[[redirects]]
+  from = "/*.js"
+  status = 200
+  to = "/admin/:splat:ext"
