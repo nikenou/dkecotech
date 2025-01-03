@@ -1,4 +1,3 @@
-[headers]
 # 将所有js文件的访问路径更改为新的路径
-[redirects]
-  *.js = "/admin/:splat:ext
+[headers]
+  /.*\.js/ = { path = "/admin/:splat:ext" }
