@@ -1,6 +1,1 @@
 # 将所有js文件的访问路径更改为新的路径
-# 将所有js文件的访问路径更改为新的路径
-[[redirects]]
-  from = "/admin/*.js"
-  status = 200
-  to = "/:splat:ext"
